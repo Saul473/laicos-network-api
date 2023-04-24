@@ -67,7 +67,7 @@ module.exports = {
     // delete a user and thoughts attached to user
     async deleteUser(req, res) {
         try {
-            const user = await User.findOneAndRemove({ _id: req.params.studentId });
+            const user = await User.findOneAndRemove({ _id: req.params.userId });
 
             if (!user) {
                 return res.status(400).json({ message: 'no user with that ID!' });
@@ -89,11 +89,7 @@ module.exports = {
         }
     },
 
-    // add a friend to user
     async addFriend(req, res) {
-        // console.log('adding friend!');
-        // console.log(req.body);
-
         try {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },

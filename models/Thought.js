@@ -1,30 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('../models/Reaction')
 
-// const reactionSchema = new Schema(
-//     {
-//         reactionId: {
-//             type: Schema.Types.ObjectId,
-//             default: () => new Types.ObjectId()
-//         },
-//         reactionBody: {
-//             type: String,
-//             required: true,
-//             min_length: 1,
-//             max_length: 280,
-//         },
-//         username: {
-//             type: String,
-//             required: true,
-//         },
-//         createdAt: {
-//             type: Date,
-//             default: Date.now(),
-//             // format timestamp on query
-//         }
-//     }
-// )
-
 // Schema for what makes up a thought
 const thoughtSchema = new Schema(
     {
@@ -37,7 +13,6 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // format timestamp on query
         },
         username: {
             type: String,

@@ -45,15 +45,15 @@ module.exports = {
     // Update a thought
     async updateThought(req, res) {
         try {
-            const thought = Thought.findOneAndUpdate(
+            const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
                 { $set: req.body },
-                { runValidators: true, new: true }
+                { new: true }
             );
             if (!thought) {
                 res.status(404).json({ message: 'No thought with this ID!' });
             }
-            res.json(thought);
+            res.status(200).json({message: 'thought updated successfully!'});
         } catch (err) {
             res.status(500).json(err);
         }
@@ -75,11 +75,6 @@ module.exports = {
             }
 
             res.status(200).json({ message: 'Thought has been deleted!' })
-
-            //   await User.deleteMany({ _id: { $in: thought.users } });
-            //   res.json({ message: 'Thought and user deleted!' });
-            // } catch (err) {
-            //   res.status(500).json(err);
         } catch (err) {
             res.status(500).json(err);
         }
@@ -114,7 +109,7 @@ module.exports = {
             if(!thought) {
                return res.status(404).json({ message: 'No thought with that ID.'})
             }
-            res.status(200).json({ message: 'Reaction added!'})
+            res.status(200).json({ message: 'Reaction deleted!'})
         } catch (err) {
             console.log(err);
             res.status(500).json(err);

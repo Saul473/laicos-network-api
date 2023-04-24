@@ -14,7 +14,6 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            //  add validation method to make sure email is valid, regex validation mongoose.
         },
         thoughts: [
             {
